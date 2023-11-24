@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "ec9bd3a4-9b45-4009-af85-267367c01394",
+		"name": "xyz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25931207"
+	},
+	"item": [
+		{
+			"name": "xyzboutique-sahre",
+			"item": [
+				{
+					"name": "Search Roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lxyz-local}}roles?text=a&state=0&page=2&orderby=id",
+							"host": [
+								"{{lxyz-local}}roles"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "a"
+								},
+								{
+									"key": "state",
+									"value": "0"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "orderby",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindUserById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Create-User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n//   \"idUser\": \"string\",\n//   \"userName\": \"string\",\n//   \"ipUser\": \"string\",\n//   \"id\": \"string\",\n  \"code\": \"RCV0001\",\n  \"name\": \"Raul CV\",\n  \"password\": \"Raulcv2023.\",\n  \"idRole\": \"e44d807d-d89b-48f8-b708-319fea2cb245\",\n  \"email\": \"raulcv@gmail.com\",\n  \"state\": 1, // 1 Active and 0 is inactive others not valid\n  \"changePassowrd\": false, // \n  \"phone\": \"247387443843\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lxyz-local}}users",
+							"host": [
+								"{{lxyz-local}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
