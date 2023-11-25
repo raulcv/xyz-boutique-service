@@ -7,12 +7,12 @@ using xyzboutique.common.Core;
 namespace xyzboutique.common.Entities.Administration;
 
 [Description("To store Order information")]
-[Table("Order", Schema = "Administration")]
+[Table("Orders", Schema = "Administration")]
 public class Order : BaseEntityLog
 {
 
   [Key]
-  [Column("IdRole")]
+  [Column("IdOrder")]
   public Guid Id { get; set; }
 
   [Column("IdCustomer")]

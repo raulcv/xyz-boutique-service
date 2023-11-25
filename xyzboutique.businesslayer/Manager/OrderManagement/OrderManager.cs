@@ -71,7 +71,7 @@ public class OrderManager : IOrderManager
       SaveChanges();
       _logger.LogInformation("Record saved for {0}", this.GetType());
 
-      checkstatus = new CheckStatus(order.Id.ToString(), null, Status.Ok, string.Format(Message.Save, Message.User));
+      checkstatus = new CheckStatus(order.Id.ToString(), order.OrderNumber, Status.Ok, string.Format(Message.Save, Message.User));
 
       id = order.Id.ToString();
 
@@ -86,7 +86,7 @@ public class OrderManager : IOrderManager
 
             orderProduct = new OrderProduct()
             {
-              IdProduct = item.IdProduct,
+              IdProduct = new Guid(item.IdProduct),
               IdOrder = new Guid(id),
               DateCreation = date,
               DateUpdate = date,
@@ -97,8 +97,8 @@ public class OrderManager : IOrderManager
             _logger.LogInformation("Order Product Creating record for {0}", this.GetType());
             _repository.Create<OrderProduct>(orderProduct);
             _logger.LogInformation("Order Product Record saved for {0}", this.GetType());
+            SaveChanges();
           }
-          SaveChanges();
         }
       }
     }
@@ -167,12 +167,12 @@ public class OrderManager : IOrderManager
     throw new NotImplementedException();
   }
 
-  public CheckStatus ChangeOrderStatus(string id)
+  public CheckStatus ChangeOrderStatus(string idOrder)
   {
 
     CheckStatus checkstatus = new CheckStatus();
 
-    Order order = _repository.Find<Order>(f => f.Id.Equals(id));
+    Order order = _repository.Find<Order>(f => f.Id.Equals(new Guid(idOrder)));
 
     // Order orderFind = order.Where(o => o.Id.Equals(id)).FirstOrDefault();
 
@@ -208,10 +208,7 @@ public class OrderManager : IOrderManager
         }
         order.IdOrderState = NextOrderStatus.Id;
       }
-    }
 
-    if (checkstatus.ApiState.Equals(Status.Ok))
-    {
       DateTime date = _helperManager.ReturnCurrentDate();
 
       _logger.LogInformation("Creating record for {0}", this.GetType());
@@ -219,7 +216,7 @@ public class OrderManager : IOrderManager
       SaveChanges();
       _logger.LogInformation("Record saved for {0}", this.GetType());
 
-      checkstatus = new CheckStatus(order.Id.ToString(), null, Status.Ok, string.Format(Message.Save, Message.User));
+      checkstatus = new CheckStatus(order.Id.ToString(), order.OrderNumber, Status.Ok, string.Format(Message.Save, Message.User));
     }
     else
     {

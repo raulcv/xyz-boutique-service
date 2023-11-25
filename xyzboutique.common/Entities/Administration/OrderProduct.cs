@@ -6,17 +6,17 @@ using xyzboutique.common.Core;
 
 namespace xyzboutique.common.Entities.Administration;
 
-[Description("To store Order information")]
+[Description("To store Order Products information")]
 [Table("OrderProducts", Schema = "Administration")]
 public class OrderProduct : BaseEntityLog
 {
 
   [Key]
   [Column("IdOrderProducts")]
-  public string Id { get; set; }
+  public Guid Id { get; set; }
 
   [Column("IdProduct")]
-  public string IdProduct { get; set; }
+  public Guid IdProduct { get; set; }
 
   [Column("IdOrder")]
   public Guid IdOrder { get; set; }

@@ -12,7 +12,7 @@ public class OrderStatus
 {
 
   [Key]
-  [Column("IdOrderStatus")]
+  [Column("IdOrderState")]
   public Guid Id { get; set; }
 
   [Column("Name")]

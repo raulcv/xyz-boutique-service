@@ -1,8 +1,8 @@
 
-create DATABASE xyzboutiquedb2;
+create DATABASE xyzboutiquedb;
 GO
 
-USE xyzboutiquedb2;
+USE xyzboutiquedb;
 GO
 
 CREATE SCHEMA Security;

@@ -56,7 +56,7 @@ public class OrderController : BaseController
   [HttpPost]
   [ProducesResponseType(typeof(CheckStatus), 201)]
   [ProducesResponseType(typeof(CheckStatus), 404)]
-  public IActionResult Post([FromBody] UserInput input)
+  public IActionResult Post([FromBody] OrderInput input)
   {
     try
     {
@@ -85,7 +85,7 @@ public class OrderController : BaseController
     }
   }
 
-  [HttpPost("/ChangeStatus")]
+  [HttpPost("/changeOrderStatus")]
   [ProducesResponseType(typeof(CheckStatus), 201)]
   [ProducesResponseType(typeof(CheckStatus), 404)]
   public IActionResult ChangeStatus(string idOrder)

@@ -346,12 +346,12 @@ public class Repository : IRepository
 
   public T Find<T>(Expression<Func<T, bool>> predicate) where T : class
   {
-    throw new NotImplementedException();
+    return _context.Set<T>().FirstOrDefault<T>(predicate);
   }
 
   public T Single<T>(Expression<Func<T, bool>> expression) where T : class
   {
-    throw new NotImplementedException();
+    return All<T>().FirstOrDefault(expression);
   }
 
   public void Update<T>(T TObject) where T : class

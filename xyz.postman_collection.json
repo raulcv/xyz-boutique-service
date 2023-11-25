@@ -42,14 +42,6 @@
 					"response": []
 				},
 				{
-					"name": "FindUserById",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
 					"name": "Create-User",
 					"request": {
 						"method": "POST",
@@ -73,10 +65,66 @@
 					"response": []
 				},
 				{
+					"name": "FindUserById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
 					"name": "Login",
 					"request": {
 						"method": "GET",
 						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "create-order Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n//   \"idUser\": \"string\",\n//   \"userName\": \"string\",\n//   \"ipUser\": \"string\",\n//   \"id\": \"string\",\n  \"idCustomer\": \"6e810875-7ec3-4774-aa9f-9677288ab33b\",\n  \"idEmployee\": \"053f73f6-a6e5-46c3-b19a-9afb14879bdd\",\n  \"idOrderState\": \"21ab948a-5b3a-45c7-b4ba-e2e835c0d547\",\n  \"orderNumber\": \"ORDER0002\",\n  \"orderDate\": \"01/01/2023\",\n  \"receptionDate\": \"01/01/2023\",\n  \"shippingDate\": \"01/01/2023\",\n  \"deliveryDate\": \"01/01/2023\",\n  \"orderProductInputs\": [\n    {\n      \"idUser\": \"4cdc2e69-e7b9-4516-b7fb-08dbedc7ed5c\",\n      \"userName\": \"RCV0002\",\n      \"ipUser\": \"\",\n    //   \"id\": \"5c3deeb3-e420-4387-987b-2189ef23584f\",\n      \"idProduct\": \"5c3deeb3-e420-4387-987b-2189ef23584f\"\n    //   \"idOrder\": \"string\" // Automatically Assign\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lxyz-local}}orders",
+							"host": [
+								"{{lxyz-local}}orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change-Order-Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5112/changeOrderStatus?idOrder=f0a68c50-a5ae-4d75-306f-08dbedcaea61",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5112",
+							"path": [
+								"changeOrderStatus"
+							],
+							"query": [
+								{
+									"key": "idOrder",
+									"value": "f0a68c50-a5ae-4d75-306f-08dbedcaea61"
+								}
+							]
+						}
 					},
 					"response": []
 				}
